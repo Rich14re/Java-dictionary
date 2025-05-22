@@ -1,4 +1,6 @@
+import java.io.File;
 import java.io.IOException;
+import java.util.Scanner;
 
 public class DictManager {
     private AbstractDictionary currentDict;
@@ -20,5 +22,21 @@ public class DictManager {
         }
 
         selectDictType();
+    }
+
+    void selectDictType() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Выберите тип:");
+        System.out.println("1. 4 буквы - буквенный");
+        System.out.println("2. 5 цифр - циферный");
+
+        int type = sc.nextInt();
+        sc.nextLine();
+
+        if(type == 1) {
+            currentDict = new LetterDictionary(dictFile);
+        } else {
+            currentDict = new NumberDictionary(dictFile);
+        }
     }
 }
