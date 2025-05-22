@@ -29,7 +29,7 @@ public class Main {
             String choice = input.nextLine();
 
             switch (choice) {
-                case "1":
+                case "1":   
                     manager.changeDictType();
                     break;
                 case "2":
