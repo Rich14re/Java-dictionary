@@ -29,17 +29,17 @@ public class Main {
             String choice = input.nextLine();
 
             switch (choice) {
-                case "1":   
+                case "1":
                     manager.changeDictType();
                     break;
                 case "2":
-                    addNewWord(input);
+                    manager.addNewWord(input);
                     break;
                 case "3":
-                    deleteWord(input);
+                    manager.deleteWord(input);
                     break;
                 case "4":
-                    findTranslation(input);
+                    manager.findTranslation(input);
                     break;
                 case "5":
                     manager.showDict();
