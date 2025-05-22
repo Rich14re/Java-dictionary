@@ -39,4 +39,25 @@ public class DictManager {
             currentDict = new NumberDictionary(dictFile);
         }
     }
+
+    public void changeDictType() {
+        selectDictType();
+        System.out.println("Тип изменен!");
+    }
+
+    public boolean addWord(String word, String trans) {
+        return currentDict.add(word, trans);
+    }
+
+    public boolean removeWord(String word) {
+        return currentDict.remove(word);
+    }
+
+    public String getTranslation(String word) {
+        return currentDict.find(word);
+    }
+
+    public void showDict() {
+        currentDict.print();
+    }
 }
