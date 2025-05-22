@@ -1,27 +1,53 @@
 import java.util.Scanner;
 
 public class Main {
+    static DictManager manager;
+
     public static void main(String[] args) {
-        boolean exit = false;
-        Scanner sc = new Scanner(System.in);
+        startApp();
+    }
 
-        while(!exit){
-            System.out.println("Выберите действие... ");
-            System.out.println("1. Чтение");
-            System.out.println("2. Добавление");
-            System.out.println("3. Удаление");
-            System.out.println("4. Поиск по ключу");
-            System.out.println("5. Выход");
+    static void startApp() {
+        System.out.println("*** СЛОВАРЬ ***");
+        manager = new DictManager();
+        manager.setup();
+        showMenu();
+    }
 
-            int ch = sc.nextInt();
-            sc.nextLine();
+    static void showMenu() {
+        Scanner input = new Scanner(System.in);
+        while (true) {
+            System.out.println("\n=== МЕНЮ ===");
+            System.out.println("1. Сменить тип словаря");
+            System.out.println("2. Добавить запись");
+            System.out.println("3. Удалить запись");
+            System.out.println("4. Найти перевод");
+            System.out.println("5. Показать словарь");
+            System.out.println("6. Выйти");
+            System.out.print("Выберите: ");
 
-            switch (ch){
-                case 1: break; //вывод
-                case 2: break; //добавление
-                case 3: break; //удаление
-                case 4: break; //поиск по ключу
-                case 5: break; //выход
+            String choice = input.nextLine();
+
+            switch (choice) {
+                case "1":
+                    manager.changeDictType();
+                    break;
+                case "2":
+                    addNewWord(input);
+                    break;
+                case "3":
+                    deleteWord(input);
+                    break;
+                case "4":
+                    findTranslation(input);
+                    break;
+                case "5":
+                    manager.showDict();
+                    break;
+                case "6":
+                    System.exit(0);
+                default:
+                    System.out.println("Не понял...");
             }
         }
     }
